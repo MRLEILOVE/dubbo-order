@@ -1,6 +1,7 @@
 package com.leigq.www.server.config;
 
 import org.apache.dubbo.config.ApplicationConfig;
+import org.apache.dubbo.config.ConsumerConfig;
 import org.apache.dubbo.config.ProtocolConfig;
 import org.apache.dubbo.config.RegistryConfig;
 import org.springframework.context.annotation.Bean;
@@ -22,9 +23,16 @@ public class DubboConfig {
     @Bean
     public ApplicationConfig applicationConfig() {
         ApplicationConfig applicationConfig = new ApplicationConfig();
-        // 提供方应用信息，用于计算依赖关系
-        applicationConfig.setName("provider-commodity");
+        // 应用信息，用于计算依赖关系
+        applicationConfig.setName("consumer-order");
         return applicationConfig;
+    }
+
+    @Bean
+    public ConsumerConfig consumerConfig() {
+        ConsumerConfig consumerConfig = new ConsumerConfig();
+        consumerConfig.setTimeout(3000);
+        return consumerConfig;
     }
 
     @Bean
@@ -32,15 +40,8 @@ public class DubboConfig {
         RegistryConfig registryConfig = new RegistryConfig();
         // 使用zookeeper注册中心暴露服务地址
         registryConfig.setAddress("zookeeper://127.0.0.1:2181");
+        registryConfig.setClient("curator");
         return registryConfig;
     }
 
-    @Bean
-    public ProtocolConfig protocolConfig() {
-        ProtocolConfig protocolConfig = new ProtocolConfig();
-        // 用dubbo协议在20880端口暴露服务: 支持两种协议调用dubbo、rest
-        protocolConfig.setName("dubbo");
-        protocolConfig.setPort(20880);
-        return protocolConfig;
-    }
 }

@@ -7,12 +7,20 @@
         <groupId>com.leigq.www</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>server</artifactId>
+    <artifactId>order-server</artifactId>
 
     <dependencies>
+
+        <!--商品服务API模块-->
         <dependency>
             <groupId>com.leigq.www</groupId>
-            <artifactId>model</artifactId>
+            <artifactId>commodity-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.leigq.www</groupId>
+            <artifactId>order-model</artifactId>
         </dependency>
 
         <dependency>
@@ -40,29 +48,13 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-        <!--dubbo-->
+        <!--此依赖已包含ZK-->
+        <!--https://mvnrepository.com/artifact/com.alibaba.boot/dubbo-spring-boot-starter-->
         <dependency>
-            <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo -->
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo</artifactId>
-            <version>${dubbo.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>spring</artifactId>
-                    <groupId>org.springframework</groupId>
-                </exclusion>
-            </exclusions>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>${dubbo-spring-boot.version}</version>
         </dependency>
-
-        <!--zookeeper-->
-        <!-- https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper -->
-        <dependency>
-            <groupId>org.apache.zookeeper</groupId>
-            <artifactId>zookeeper</artifactId>
-            <version>${zookeeper.version}</version>
-            <type>pom</type>
-        </dependency>
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
