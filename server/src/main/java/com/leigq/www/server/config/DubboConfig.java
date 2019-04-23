@@ -1,9 +1,8 @@
 package com.leigq.www.server.config;
 
-import org.apache.dubbo.config.ApplicationConfig;
-import org.apache.dubbo.config.ConsumerConfig;
-import org.apache.dubbo.config.ProtocolConfig;
-import org.apache.dubbo.config.RegistryConfig;
+import com.alibaba.dubbo.config.ApplicationConfig;
+import com.alibaba.dubbo.config.ConsumerConfig;
+import com.alibaba.dubbo.config.RegistryConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -40,7 +39,7 @@ public class DubboConfig {
         RegistryConfig registryConfig = new RegistryConfig();
         // 使用zookeeper注册中心暴露服务地址
         registryConfig.setAddress("zookeeper://127.0.0.1:2181");
-        registryConfig.setClient("curator");
+//        registryConfig.setClient("curator");
         return registryConfig;
     }
 

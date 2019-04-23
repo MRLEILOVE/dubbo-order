@@ -1,9 +1,9 @@
 package com.leigq.www.server.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.leigq.www.dubbo.api.entity.Commodity;
 import com.leigq.www.dubbo.api.service.CommodityService;
 import com.leigq.www.server.bean.Response;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
