@@ -1,0 +1,51 @@
+# 服务器配置
+server:
+    # 建议不要直接写死，可以在VM options中通过-DServer.port=8080配置
+    port: 8080
+    tomcat:
+        uri-encoding: UTF-8
+# MyBatis配置
+mybatis:
+    mapper-locations: classpath*:/mappers/**/*.xml
+    type-aliases-package: com.leigq.www.dubbo.model.mapper
+    # 设置自动驼峰命名转换
+    configuration:
+      mapUnderscoreToCamelCase: true
+      # 使用mybatis插入自增主键ID的数据后返回自增的ID，配合keyProperty="id"使用
+      use-generated-keys: true
+      # spring boot集成mybatis的方式打印sql：https://blog.csdn.net/qq_22194659/article/details/81120712
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+spring:
+    application:
+        name: commodity
+    # 数据源、数据库连接池druid配置
+    datasource:
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKPYsCl3alwZlRb1vKoFdVu0LP3Nm/+vH5iOWxI83pkUbrQc13Lxz/VT3D+H+ziaUpUsA+ZjG4iZGTDJWZnP8kcCAwEAAQ==
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: config,stat,wall,slf4j
+        initialSize: 5
+        maxActive: 20
+        maxPoolPreparedStatementPerConnectionSize: 20
+        maxWait: 60000
+        minEvictableIdleTimeMillis: 300000
+        minIdle: 5
+        password: kGJF6c+pzVsf49LGs01ss0yijBGXIpNEp20cMkNCQo3ONaeMNPeoW9M89v+nGeiWs95/D2Ms59uGyydDGUWpmg==
+        poolPreparedStatements: true
+        testOnBorrow: false
+        testOnReturn: false
+        testWhileIdle: true
+        timeBetweenEvictionRunsMillis: 60000
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/dubbo-order?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true&serverTimezone=UTC
+        username: root
+        validationQuery: SELECT 1 FROM DUAL
+
+# 分页插件
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+
+
