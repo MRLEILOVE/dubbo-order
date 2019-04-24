@@ -1,7 +1,7 @@
 # 服务器配置
 server:
     # 建议不要直接写死，可以在VM options中通过-DServer.port=8080配置
-    port: 9080
+    port: 8082
     tomcat:
         uri-encoding: UTF-8
 # MyBatis配置
