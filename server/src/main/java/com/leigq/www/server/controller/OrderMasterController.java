@@ -26,7 +26,7 @@ public class OrderMasterController {
 
     private final Response response;
 
-    @Reference
+    @Reference(version = "1.0")
     private CommodityService commodityService;
 
     @Autowired
