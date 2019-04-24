@@ -62,6 +62,9 @@ dubbo:
   # 提供商 服务提供方才需要配置
 #  provider:
 #    timeout: 1000
+  # monitor服务监控中心
+  monitor:
+    protocol: registry
 
 
 
