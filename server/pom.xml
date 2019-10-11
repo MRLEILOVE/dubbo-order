@@ -30,13 +30,6 @@
         </dependency>
 
         <!-- druid数据库连接池 -->
-        <!-- 废弃，已经使用下面的新版 druid-spring-boot-starter -->
-        <!--<dependency>-->
-        <!--<groupId>com.alibaba</groupId>-->
-        <!--<artifactId>druid</artifactId>-->
-        <!--<version>${druid.version}</version>-->
-        <!--</dependency>-->
-
         <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -73,6 +66,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!--Spring Boot Actuator监控端点-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
     </dependencies>

@@ -26,7 +26,6 @@ public class OrderMasterController {
 
     private final Response response;
 
-
     // timeout 可以不指定，但是version一定要指定 不然会找不到服务 直连需要加url="dubbo://localhost:20880"
     @Reference(version = "1.0")
     private CommodityService commodityService;
